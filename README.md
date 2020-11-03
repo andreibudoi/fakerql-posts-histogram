@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+# fakerql-posts-histogram
+
+React application that fetches a relevantly-sized list of posts from the mock GraphQL API available at [https://fakerql.stephix.uk/](https://fakerql.stephix.uk/) using Apollo and displays a histogram representing the number of posts created in each month of 2019. 
+
+Links: \
+[Github FakerQL](https://github.com/notrab/fakerql) - Documentation for schema behind FakerQL \
+[visx](https://github.com/airbnb/visx) - Used for displaying histogram
+
+## Challenges
+
+The main challenge of this project was customizing Visx to fit my needs, due to the fact that it’s not as well documented as Apollo or GraphQL. Despite this being my first time using any of these three technologies, Apollo was fairly easy to pick up and GraphQL queries are incredibly fun to use. After fetching the data from the FakerQL API, I had to figure out how to format it, in order to pass it to the Visx histogram component and display it properly. I had to settle for a quick and plain bar graph, written in Javascript, unlike all the examples written in Typescript, provided by Visx.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
