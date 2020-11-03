@@ -1,6 +1,8 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client";
 import Posts from "./components/Posts";
+// import Histogram from "./components/Histogram.tsx"
+import HistogramContainer from "./components/HistogramContainer";
 import "./App.css";
 
 const client = new ApolloClient({
@@ -11,19 +13,20 @@ const client = new ApolloClient({
 const App = () => {
     return (
         <ApolloProvider client={client}>
-            <nav className="navbar navbar-light bg-light">
+            <nav className="navbar sticky-top navbar-light bg-light">
                 <a className="navbar-brand" href="#">
                     <img
+                        className="mr-2"
                         src="https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg"
                         width="30"
                         height="30"
                         alt=""
                     />
-                    FakerQL Demo
+                    FakerQL Demo - Blog Posts of 2019
                 </a>
             </nav>
             <div className="container">
-                {/* <Histogram/> */}
+                <HistogramContainer />
                 <Posts />
             </div>
         </ApolloProvider>

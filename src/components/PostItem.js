@@ -18,7 +18,11 @@ const PostItem = (post) => {
             </div>
             <h5 className="mb-3">{body}</h5>
             <div className="text-muted">
-                {`Posted by ${author.firstName} ${author.lastName} on ${moment.unix(createdAt/1000).format("DD MMM YYYY hh:mm a")}`}
+                {`Posted by ${author.firstName} ${
+                    author.lastName
+                } on ${moment
+                    .unix(createdAt / 1000)
+                    .format("DD MMM YYYY hh:mm a")}`}
             </div>
         </div>
     );

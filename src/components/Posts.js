@@ -1,10 +1,11 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import PostItem from "./PostItem";
+import moment from "moment";
 
 const getAllPosts = gql`
     query {
-        allPosts(count: 1000) {
+        allPosts(count: 200) {
             id
             title
             body
@@ -22,16 +23,19 @@ const getAllPosts = gql`
 const Posts = () => {
     const { loading, error, data } = useQuery(getAllPosts);
 
-    if (loading) return "Loading...";
+    if (loading) return "Loading posts...";
     if (error) return `Error! ${error.message}`;
 
     return (
         <div>
-            {data.allPosts.map((post) => {
-                if (post.published) {
-                    return <PostItem key={post.id} post={post} />;
-                }
-            })}
+            {data.allPosts.map((post) =>
+                post.published &&
+                moment.unix(post.createdAt / 1000).format("YYYY") === "2019" ? (
+                    <PostItem key={post.id} post={post} />
+                ) : (
+                    ""
+                )
+            )}
         </div>
     );
 };
