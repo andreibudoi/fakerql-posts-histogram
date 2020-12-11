@@ -2,7 +2,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client";
 import Posts from "./components/Posts";
 // import Histogram from "./components/Histogram.tsx"
-import HistogramContainer from "./components/HistogramContainer";
+
 import "./App.css";
 
 const client = new ApolloClient({
@@ -26,7 +26,6 @@ const App = () => {
                 </a>
             </nav>
             <div className="container">
-                <HistogramContainer />
                 <Posts />
             </div>
         </ApolloProvider>

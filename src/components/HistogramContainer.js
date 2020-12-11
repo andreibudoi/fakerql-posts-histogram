@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { gql, useQuery } from "@apollo/client";
 import Histogram from "./Histogram";
 import { ParentSize } from "@visx/responsive";
 import moment from "moment";
-
-const getAllPosts = gql`
-    query {
-        allPosts(count: 200) {
-            published
-            createdAt
-        }
-    }
-`;
 
 const sortByMonth = (array) => {
     const months = [
@@ -34,8 +24,7 @@ const sortByMonth = (array) => {
     return array;
 };
 
-const HistogramContainer = () => {
-    const { loading, error, data } = useQuery(getAllPosts);
+const HistogramContainer = ({ loading, error, data }) => {
     const [dataSet, setDataSet] = useState([]);
     useEffect(() => {
         //If fetching is done, map all the number of posts in 2019 to each month
@@ -62,7 +51,7 @@ const HistogramContainer = () => {
                 )
             );
         }
-    }, [data, loading]);
+    }, []);
 
     if (loading) return "Loading histogram... ";
     if (error) return `Error fetching data! ${error.message}`;
