@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar } from "@visx/shape";
-import { AxisBottom, AxisLeft } from "@visx/axis";
+import { AxisBottom } from "@visx/axis";
 import { Group } from "@visx/group";
 import { scaleLinear, scaleBand } from "@visx/scale";
 import { LinearGradient } from "@visx/gradient";
@@ -38,14 +38,6 @@ const Histogram = ({ dataSet, width, height }) => {
             <LinearGradient id="pink" from="#EE9DD4" to="#FBF7FB" />
             <rect width={width} height={height} fill="url(#pink)" rx={7} />
             <Group top={verticalMargin / 2}>
-                <AxisLeft
-                    scale={yScale}
-                    top={0}
-                    left={0}
-                    label={"Close Price ($)"}
-                    stroke={"#1b1a1e"}
-                    tickTextFill={"#1b1a1e"}
-                />
                 {dataSet.map((d, i) => {
                     const barHeight = yMax - yPoint(d);
                     return (
