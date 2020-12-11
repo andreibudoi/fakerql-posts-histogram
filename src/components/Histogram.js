@@ -35,7 +35,7 @@ const Histogram = ({ dataSet, width, height }) => {
 
     return (
         <svg width={width} height={height}>
-            <LinearGradient id="pink" from="#EE9DD4" to="#F6ECF5" />
+            <LinearGradient id="pink" from="#EE9DD4" to="#FBF7FB" />
             <rect width={width} height={height} fill="url(#pink)" rx={7} />
             <Group top={verticalMargin / 2}>
                 <AxisLeft
